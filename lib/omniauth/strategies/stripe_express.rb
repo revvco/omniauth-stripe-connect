@@ -10,7 +10,7 @@ module OmniAuth
         :authorize_url => "https://connect.stripe.com/express/oauth/authorize"
       }
 
-      option :authorize_options, [:scope, :stripe_landing, :always_prompt]
+      option :authorize_options, [:stripe_landing, :always_prompt, { stripe_user: [:business_name, :business_type, :email, :first_name, :last_name, :phone_number] }]
       option :provider_ignores_state, true
 
       uid { raw_info[:stripe_user_id] }
